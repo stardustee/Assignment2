@@ -1,3 +1,6 @@
+ 
+
+ 
  <div class="row justify-content-md-center">
           <div class="col">
 
@@ -16,12 +19,12 @@
               </thead>
               <tbody>
 
-                <% for(let count=0; count < buisness.length; count++) { %>
+                <% for(let count=0; count < Buisness.length; count++) { %>
 
                 <tr>
-                  <td><%= buisness[count].name %></td>
-                  <td><%= buisness[count].number %></td>
-                  <td><%= buisness[count].email %></td>
+                  <td><%= Buisness[count].name %></td>
+                  <td><%= Buisness[count].number %></td>
+                  <td><%= Buisness[count].email %></td>
                   <td>
                     <a href="/buisness-list/edit/<%= buisness[count]._id %>" class="btn btn-primary btn-sm">
                         <i class="fas fa-edit"></i> Update</a>

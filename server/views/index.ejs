@@ -1,6 +1,6 @@
 <%- include('./partials/header.ejs') -%>
 
-<%- include('./partials/content.ejs') -%>
+
       <% if(title == 'Buissness Contact') { %>
         <%- include('./content/buisness-list.ejs') -%> 
       <% } else if(title == 'Add Buissness') { %>
@@ -8,6 +8,8 @@
       <% } else if(title == 'Edit Buissness Contact') { %>
         <%- include('./content/edit-buisness.ejs') -%> 
       <% } %>
+<%- include('./partials/content.ejs') -%>
+
 
 <%- include('./partials/footer.ejs') -%>
     

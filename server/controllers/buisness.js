@@ -1,3 +1,4 @@
+const { Console } = require('console');
 let express = require('express');
 let router = express.Router();
 
@@ -13,9 +14,9 @@ module.exports.DisplayBuisnessList = (req, res, next) => {
         console.error(err);
         res.end()
       }
-  
-      res.render('index', { title: 'Buisness Contacts', Buisness: data ,
-      displayName: req.user ? req.user.displayName : ''});
+      //console.log(data)
+      res.render('index', { title: 'Buisness Contacts', Buisness:data ,
+     displayName: req.user ? req.user.displayName : ''});
     });
     
   }
@@ -40,6 +41,7 @@ module.exports.ProcessAddPage = (req, res, next)=> {
             console.log(err);
             res.end(err);
         }
+        
         res.redirect('/buisness-list');
     });
 }
