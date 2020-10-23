@@ -13,16 +13,14 @@
 <%- include('./partials/header.ejs') -%>
 
     <div class="container">
-
         <div class="jumbotron">
-<%- include('./partials/content.ejs') -%> 
 
-      <% if(title == 'Buisness List') { %>
+<% if(title == 'Home') { %>
+          <%- include('./partials/content.ejs') -%>
+      <% } else if(title == 'Buisness List') { %>
         <%- include('./content/buisness-list.ejs') -%> 
-
       <% } else if(title == 'Add Contact') { %>
         <%- include('./content/add-buisness.ejs') -%> 
-
       <% } else if(title == 'Edit Buisness') { %>
         <%- include('./content/edit-buisness.ejs') -%> 
       <% } %>
