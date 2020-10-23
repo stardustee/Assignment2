@@ -22,7 +22,7 @@ module.exports.DisplayBuisnessList = (req, res, next) => {
   }
 
   module.exports.DisplayAddPage = (req, res, next)=> {
-    res.render('index', { title: 'Add Component' });
+    res.render('index', { title: 'Add Buisness Contact' });
 }
 
 module.exports.ProcessAddPage = (req, res, next)=> {
