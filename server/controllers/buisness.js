@@ -14,7 +14,7 @@ module.exports.DisplayBuisnessList = (req, res, next) => {
         console.error(err);
         res.end()
       }
-  console.log(data)
+  //console.log(data)
       res.render('index', { title: 'Buisness List', buisness: data ,
       displayName: req.user ? req.user.displayName : ''});
     });
@@ -22,19 +22,19 @@ module.exports.DisplayBuisnessList = (req, res, next) => {
   }
 
   module.exports.DisplayAddPage = (req, res, next)=> {
-    res.render('index', { title: 'Add Contact' });
+    res.render('index', { title: 'Add Component' });
 }
 
 module.exports.ProcessAddPage = (req, res, next)=> {
 
     // instantiate a new object of type Component
     let buisness = Buisness.Model({
-        "name": req.body.name,
+        "name":req.body.name,
         "number": req.body.number,
         "email": req.body.email
     });
 
-    Buisness.Model.create(buisness, (err, Buisness) => {
+    Component.Model.create(buisness, (err, Buisness) => {
         if(err)
         {
             console.log(err);
@@ -43,7 +43,6 @@ module.exports.ProcessAddPage = (req, res, next)=> {
         res.redirect('/buisness-list');
     });
 }
-
 module.exports.DisplayEditPage = (req, res, next)=> {
     let id = req.params.id;
 

@@ -1,12 +1,12 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require ('mongoose')
-let passport = require('passport')
+/*let mongoose = require ('mongoose');*/
+/*let passport = require('passport');*/
 
 let buisnessController = require('../controllers/buisness');
 
 
-/*function requireAuth(req, res, next)
+function requireAuth(req, res, next)
 {
     if(!req.isAuthenticated())
     {
@@ -14,7 +14,7 @@ let buisnessController = require('../controllers/buisness');
     }
     next();
 }
-*/
+
 
 /* GET Component-list page. READ */
 router.get('/', buisnessController.DisplayBuisnessList);
@@ -23,16 +23,16 @@ router.get('/', buisnessController.DisplayBuisnessList);
 router.get('/add', buisnessController.DisplayAddPage);
 
 /* POST process the Add page. CREATE */
-router.post('/add',  buisnessController.ProcessAddPage);
+router.post('/add', buisnessController.ProcessAddPage);
 
 /* GET Display Edit page. UPDATE */
-router.get('/edit/:id',  buisnessController.DisplayEditPage);
+router.get('/edit/:id',requireAuth,  buisnessController.DisplayEditPage);
 
 /* POST process the Edit page. UPDATE */
-router.post('/edit/:id',  buisnessController.ProcessEditPage);
+router.post('/edit/:id',requireAuth,  buisnessController.ProcessEditPage);
 
 /* GET process the Delete page. DELETE */
-router.get('/delete/:id',  buisnessController.ProcessDeletePage);
+router.get('/delete/:id',requireAuth,  buisnessController.ProcessDeletePage);
 
 
 module.exports = router;

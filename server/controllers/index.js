@@ -82,63 +82,7 @@ module.exports.ProcessLoginPage = (req, res, next) => {
   })(req, res, next);
 }
 
-module.exports.DisplayRegisterPage = (req, res, next) => {
-  // check if the user is not already logged in
-  if(!req.user)
-  {
-    res.render('auth/register',
-    {
-      title: 'Register',
-      messages: req.flash('registerMessage'),
-      displayName: req.user ? req.user.displayName : ''
-    });
-  }
-  else
-  {
-    return res.redirect('/');
-  }
-}
 
-module.exports.ProcessRegisterPage = (req, res, next) =>
-{
-  // instantiate a new  user object
-  let newUser = new User({
-    username: req.body.username,
-    email: req.body.email,
-    displayName: req.body.displayName
-  });
-
-  User.register(newUser, req.body.password, (err) => {
-    if(err)
-    {
-      console.log("Error: Inserting New User");
-      if(err.name == "UserExistsError")
-      {
-        req.flash('registerMessage', 'Registration Error: an error occurred');
-        console.log('Error: user Already Exists!');
-      }
-      return res.render('auth/register', {
-        title: 'Register',
-        messages: req.flash('registerMessage'),
-        displayName: req.user ? req.user.displayName : ''
-      });
-    }
-    else
-    {
-      // if no error exists, the registration is successful
-
-      // redirect the user and authenticate them
-
-      // choice 1 - redirect user back to login page
-
-      // choice 2 - authenticate them and then redirect them
-
-      return passport.authenticate('local')(req, res, () => {
-        res.redirect('/buisness-list');
-      });
-    }
-  });
-}
 
 module.exports.PerformLogout = (req, res,next) => {
   req.logout();
