@@ -20,10 +20,10 @@ function requireAuth(req, res, next)
 router.get('/', buisnessController.DisplayBuisnessList);
   
 /* GET Display Add page. CREATE  */
-router.get('/add', buisnessController.DisplayAddPage);
+router.get('/add', requireAuth, buisnessController.DisplayAddPage);
 
 /* POST process the Add page. CREATE */
-router.post('/add', buisnessController.ProcessAddPage);
+router.post('/add',requireAuth, buisnessController.ProcessAddPage);
 
 /* GET Display Edit page. UPDATE */
 router.get('/edit/:id',requireAuth,  buisnessController.DisplayEditPage);
