@@ -1,30 +1,24 @@
- 
-
- 
- <div class="row justify-content-md-center">
+<div class="row justify-content-md-center">
           <div class="col">
 
             <a href="/buisness-list/add" class="btn btn-primary btn-lg"><i class="fas fa-plus-circle"></i> Add New Contact</a>
-            <hr>
-
+            
             <table class="table table-striped table-bordered table-hover">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Number</th>
-                  <th scope="col">Email Address</th>
-                  <th></th>
-                  <th></th>
+                  <th class="text-center">Name</th>
+                  <th class="text-center">Number</th>
+                  <th class="text-center">Email Address</th>
                 </tr>
               </thead>
               <tbody>
 
-                <% for(let count=0; count < Buisness.length; count++) { %>
+                <% for(let count=0; count < buisness.length; count++) { %>
 
                 <tr>
-                  <td><%= Buisness[count].name %></td>
-                  <td><%= Buisness[count].number %></td>
-                  <td><%= Buisness[count].email %></td>
+                  <td><%= buisness[count].name %></td>
+                  <td><%= buisness[count].number %></td>
+                  <td><%= buisness[count].email %></td>
                   <td>
                     <a href="/buisness-list/edit/<%= buisness[count]._id %>" class="btn btn-primary btn-sm">
                         <i class="fas fa-edit"></i> Update</a>
@@ -42,3 +36,7 @@
 
           </div>
         </div>
+
+<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="/Content/app.css">

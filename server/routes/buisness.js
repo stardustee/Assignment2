@@ -6,7 +6,7 @@ let passport = require('passport')
 let buisnessController = require('../controllers/buisness');
 
 
-function requireAuth(req, res, next)
+/*function requireAuth(req, res, next)
 {
     if(!req.isAuthenticated())
     {
@@ -14,25 +14,25 @@ function requireAuth(req, res, next)
     }
     next();
 }
-
+*/
 
 /* GET Component-list page. READ */
 router.get('/', buisnessController.DisplayBuisnessList);
   
 /* GET Display Add page. CREATE  */
-router.get('/add', requireAuth, buisnessController.DisplayAddPage);
+router.get('/add', buisnessController.DisplayAddPage);
 
 /* POST process the Add page. CREATE */
-router.post('/add', requireAuth, buisnessController.ProcessAddPage);
+router.post('/add',  buisnessController.ProcessAddPage);
 
 /* GET Display Edit page. UPDATE */
-router.get('/edit/:id', requireAuth, buisnessController.DisplayEditPage);
+router.get('/edit/:id',  buisnessController.DisplayEditPage);
 
 /* POST process the Edit page. UPDATE */
-router.post('/edit/:id', requireAuth, buisnessController.ProcessEditPage);
+router.post('/edit/:id',  buisnessController.ProcessEditPage);
 
 /* GET process the Delete page. DELETE */
-router.get('/delete/:id', requireAuth, buisnessController.ProcessDeletePage);
+router.get('/delete/:id',  buisnessController.ProcessDeletePage);
 
 
 module.exports = router;

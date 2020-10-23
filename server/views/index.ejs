@@ -1,16 +1,18 @@
 <%- include('./partials/header.ejs') -%>
 
+<%- include('./partials/content.ejs') -%> 
 
-      <% if(title == 'Buissness Contact') { %>
+
+
+      <% if(title == 'Buisness List') { %>
         <%- include('./content/buisness-list.ejs') -%> 
-      <% } else if(title == 'Add Buissness') { %>
+      <% } else if(title == 'Add Buisness') { %>
         <%- include('./content/add-buisness.ejs') -%> 
-      <% } else if(title == 'Edit Buissness Contact') { %>
+      <% } else if(title == 'Edit Buisness') { %>
         <%- include('./content/edit-buisness.ejs') -%> 
       <% } %>
-<%- include('./partials/content.ejs') -%>
 
-
+    
 <%- include('./partials/footer.ejs') -%>
     
 

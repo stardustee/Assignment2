@@ -4,13 +4,13 @@ let router = express.Router();
 let indexController = require('../controllers/index');
 
 /* GET home page. */
-router.get('/', indexController.DisplayHomePage);
+router.get('/', indexController.DisplayHomePage); 
 
 /* GET home page. */
 router.get('/home', indexController.DisplayHomePage);
 
 /* GET Products page. */
-router.get('/projects', indexController.DisplayProjectsPage);
+router.get('/projects', indexController.DisplayProductsPage);
 
 /* GET Services page. */
 router.get('/services', indexController.DisplayServicesPage);
