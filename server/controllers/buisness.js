@@ -9,17 +9,19 @@ let Buisness = require('../models/buisness');
 module.exports.DisplayBuisnessList = (req, res, next) => {
   
     Buisness.Model.find( (err, data) => {
-      if(err)
-      {
-        console.error(err);
-        res.end()
-      }
-  console.log(data)
-      res.render('index', { title: 'Buisness List', buisness: data ,
-      displayName: req.user ? req.user.displayName : ''});
-    });
-    
-  }
+        if(err)
+        {
+          console.error(err);
+          res.end()
+        }
+        else{
+          console.log(data)
+          res.render('index', { title: 'Buisness List', buisnessess: data ,
+          displayName: req.user ? req.user.displayName : ''});  
+        } 
+      }).collation({locale:'en',strength:2}).sort({name:1});
+      
+    }
 
   module.exports.DisplayAddPage = (req, res, next)=> {
     res.render('index', { title: 'Add Contact' });
