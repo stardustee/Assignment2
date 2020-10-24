@@ -16,7 +16,7 @@ module.exports.DisplayBuisnessList = (req, res, next) => {
         }
         else{
           console.log(data)
-          res.render('index', { title: 'Buisness List', buisnessess: data ,
+          res.render('index', { title: 'Buisness List', buisness: data ,
           displayName: req.user ? req.user.displayName : ''});  
         } 
       }).collation({locale:'en',strength:2}).sort({name:1});
